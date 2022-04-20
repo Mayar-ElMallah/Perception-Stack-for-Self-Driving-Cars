@@ -13,4 +13,4 @@ In any driving scenario, lane lines are an essential component of indicating tra
 8) Apply to Video
 
 ## Distortion Correction
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+![This is an image](writeUp/output_3_1.png)
