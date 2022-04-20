@@ -15,6 +15,13 @@ In any driving scenario, lane lines are an essential component of indicating tra
 ## Distortion Correction
 Camera lenses distort incoming light to focus it on the camera sensor. Although this is very useful in allowing us to capture images of our environment, they often end up distorting light slightly inaccurately. This can result in inaccurate measurements in computer vision applications. However, we can easily correct this distortion.
 
-How would you do this? You can calibrate your image against a known object, and generate a distortion model which accounts for lens distortions. This object is often an asymmetric checkerboard, similar to the below:
+How would you do this? You can calibrate your image against a known object, and generate a distortion model which accounts for lens distortions. This object is often an asymmetric checkerboard, similar to the below Images:
+### Why is the checkerboard pattern so widely used in calibration?
+Checkerboard patterns are distinct and easy to detect in an image. Not only that, the corners of squares on the checkerboard are ideal for localizing them because they have sharp gradients in two directions. In addition, these corners are also related by the fact that they are at the intersection of checkerboard lines. All these facts are used to robustly locate the corners of the squares in a checkerboard pattern.
+
 ![This is an image](writeUp/output_3_1.png)
+## Camera Calibration
+Camera Calibration is a necessary step before processing Images taken by the camera. Every Camera has some irregularities and tend to distort images to some extent. This can be due to the uneven curvature, material of lens, environment irregularities etc.
+
+So after loading the images we calibrate the camera with them. Open CV provides some handy functions like findChessboardCorners, drawChessboardCorners and calibrateCamera to help us do this.
 
