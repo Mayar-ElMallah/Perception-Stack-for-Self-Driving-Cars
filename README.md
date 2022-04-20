@@ -23,7 +23,7 @@ Checkerboard patterns are distinct and easy to detect in an image. Not only that
 ## Camera Calibration
 Camera Calibration is a necessary step before processing Images taken by the camera. Every Camera has some irregularities and tend to distort images to some extent. This can be due to the uneven curvature, material of lens, environment irregularities etc.
 
-So after loading the images we calibrate the camera with them. Open CV provides some handy functions like findChessboardCorners, drawChessboardCorners and calibrateCamera to help us do this.  
+So after loading the images we calibrate the camera with them. Open CV provides some handy functions like findChessboardCorners and calibrateCamera to help us do this.  
   ```
   Original and calibrated images
   ```
