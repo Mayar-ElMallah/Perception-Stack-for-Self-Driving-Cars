@@ -26,5 +26,5 @@ Camera Calibration is a necessary step before processing Images taken by the cam
 So after loading the images we calibrate the camera with them. Open CV provides some handy functions like findChessboardCorners, drawChessboardCorners and calibrateCamera to help us do this.  
   ```
   Original and calibrated images
-``
-![This is an image](writeUp/output_3_1.png)
+
+![This is an image](writeUp/output_1.png)
