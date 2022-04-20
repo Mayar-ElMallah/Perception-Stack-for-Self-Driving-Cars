@@ -29,3 +29,13 @@ So after loading the images we calibrate the camera with them. Open CV provides 
   ```
 
 ![This is an image](writeUp/output_1.png)
+
+### Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
+
+To calibrate the camera, First of all I imported the chessboard Images, and found their corners using the findChessboardCorners method. I also initialized the obj point as objp
+
+I kept finding corners and appended them to an array imgpoints and obj point to an array objpoints. Then I provided these as input to the calibrateCamera method, which returned a matrix. This matrix can now be used to undistort any image using the undistort method of OpenCV. This code is written in the cell 4 of my python notebook.
+Undistortion
+
+In cell 6 I used the same matrix to undistort some test Images too These are some Images after Distortion Correction.
+![This is an image](writeUp/output_2.png)
