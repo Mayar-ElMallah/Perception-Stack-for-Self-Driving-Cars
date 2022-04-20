@@ -13,4 +13,8 @@ In any driving scenario, lane lines are an essential component of indicating tra
 8) Apply to Video
 
 ## Distortion Correction
+Camera lenses distort incoming light to focus it on the camera sensor. Although this is very useful in allowing us to capture images of our environment, they often end up distorting light slightly inaccurately. This can result in inaccurate measurements in computer vision applications. However, we can easily correct this distortion.
+
+How would you do this? You can calibrate your image against a known object, and generate a distortion model which accounts for lens distortions. This object is often an asymmetric checkerboard, similar to the below:
 ![This is an image](writeUp/output_3_1.png)
+
