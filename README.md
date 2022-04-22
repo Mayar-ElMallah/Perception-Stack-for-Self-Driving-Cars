@@ -44,7 +44,7 @@ in this step,I am seeking to get rid of the shadow and brightness of the sun and
 ![This is an image](writeUp/output_4.PNG)
 from the visualization,I deduced that the appropriate channel for our project is the ***S-channel***.
 ## Transformation warp
-For being hard to detect curved lines in this space so i need to transform the images by the prespective transformatin which enables us to look at them from bird eye view.
+For being hard to detect curved lines in this space so i need to transform the images by the prespective transformatin which enables us to look at them from bird eye view. 
 
 To do this task first I tried several points to be source points (from the original images) and decided their corresponding points at the output
 then I chose the good set for our case. at the end I used OpenCV methods to do this transformation 
