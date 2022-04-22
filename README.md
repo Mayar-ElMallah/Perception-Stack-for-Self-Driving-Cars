@@ -39,3 +39,13 @@ Undistortion
 
 In cell 6 I used the same matrix to undistort some test Images too These are some Images after Distortion Correction.
 ![This is an image](writeUp/output_2.png)
+## Color space conversion
+in this step,I am seeking to get rid of the shadow and brightness of the sun and get the appropriate color channel (with good info about lane edges).
+![This is an image](writeUp/output_4.PNG)
+from the visualization,I deduced that the appropriate channel for our project is the ***S-channel***.
+## Transformation warp
+For being hard to detect curved lines in this space so i need to transform the images by the prespective transformatin which enables us to look at them from bird eye view.
+
+To do this task first I tried several points to be source points (from the original images) and decided their corresponding points at the output
+then I chose the good set for our case. at the end I used OpenCV methods to do this transformation 
+![This is an image](writeUp/output_5.PNG).
