@@ -98,7 +98,10 @@ We'll be getting a histogram of the image with respect to the X axis. Each porti
 There were a lot of challenges in the project. We have enlisted some of them with the solutions.
 
 1) Too much Noise (Lightening & Shadow): We experimented on various color channels and selected the ones with the least noise.
-2) Radius, Position, lane values changing frequently: We applied averaging/smoothening over past few frames using queues to suppress the sudden changes in values.
+2) Curvature of the lane: We solved it by Eye Bird View
+3) Lane Detection: We solve it by Sliding Window
+4) Radius, Position, lane values changing frequently: We applied averaging/smoothening over past few frames using queues to suppress the sudden changes in values.
+
 
 
 ## PipeLine(video)
