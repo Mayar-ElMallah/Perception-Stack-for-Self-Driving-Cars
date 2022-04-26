@@ -5,7 +5,7 @@ In this project we are going to create a simple perception stack for self-drivin
 In any driving scenario, lane lines are an essential component of indicating traffic flow and where a vehicle should drive. It's also a good starting point when developing a self-driving car!The lane detection system was written in Python using the OpenCV library. Here's the current image processing pipeline:
 1) Distortion Correction
 2) Perspective Warp
-3) Sobel Filtering
+3) Filteration to get the binary image
 4) Histogram Peak Detection
 5) Sliding Window Search
 6) Curve Fitting
@@ -49,3 +49,7 @@ For being hard to detect curved lines in this space so i need to transform the i
 To do this task first I tried several points to be source points (from the original images) and decided their corresponding points at the output
 then I chose the good set for our case. at the end I used OpenCV methods to do this transformation 
 ![This is an image](writeUp/output_5.PNG).
+
+## Experiment Different Colors Channel
+We tried converting the Image to various color spaces for detecting the lane lines better. We tried RGB, HSV, HLS, Lab and YCrCb color spaces.
+
