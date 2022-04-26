@@ -52,4 +52,5 @@ then I chose the good set for our case. at the end I used OpenCV methods to do t
 
 ## Experiment Different Colors Channel
 We tried converting the Image to various color spaces for detecting the lane lines better. We tried RGB, HSV, HLS, Lab and YCrCb color spaces.
-![This is an image](writeUp/output_4.PNG)
+![This is an image](writeUp/output7.PNG)
+
