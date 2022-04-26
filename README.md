@@ -52,9 +52,8 @@ then we chose the good set for our case. at the end We used OpenCV methods to do
 
 ## Experiment Different Colors Channel
 We tried converting the Image to various color spaces for detecting the lane lines better. We tried RGB, HSV, HLS, Lab and YCrCb color spaces.
-![This is an image](writeUp/output7.PNG)
-
-![This is an image](writeUp/output_8.PNG)
+![This is an image](writeUp/output7.png)
+![This is an image](writeUp/output_8.png)
 Now, we are able to identify the lane lines easily, which are too bright to identify in the original image itself. We have tried those color channels for combining they were easily able to detect the lane lines and were almost free from noise.
 ## Sobel X and Y
 We experimented on Sobel operator to check if it helps in identifying the lane lines. These are some examples of Sobel x applied on the warped images
