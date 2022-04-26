@@ -40,7 +40,7 @@ Undistortion
 In cell 6 We used the same matrix to undistort some test Images too These are some Images after Distortion Correction.
 ![This is an image](writeUp/output_2.png)
 ## Color space conversion
-In this step,We am seeking to get rid of the shadow and brightness of the sun and get the appropriate color channel (with good info about lane edges).
+In this step,We are seeking to get rid of the shadow and brightness of the sun and get the appropriate color channel (with good info about lane edges).
 ![This is an image](writeUp/output_4.PNG)
 from the visualization,We deduced that the appropriate channel for our project is the ***S-channel***.
 ## Transformation warp
