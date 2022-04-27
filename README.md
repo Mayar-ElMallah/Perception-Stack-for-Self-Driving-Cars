@@ -88,8 +88,22 @@ We'll be applying a special algorithm called the Sliding Window Algorithm to det
 We'll be getting a histogram of the image with respect to the X axis. Each portion of the histogram below displays how many white pixels are in each column of the image. We then take the highest peaks of each side of the image, one for each lane line. Here's what the histogram looks like:
 ![This is an image](writeUp/output_13.png)
 
-## Sliding Window Search and Fitting the Curve with Green Line
-## Draw Lane
+## Sliding Window Search and Fitting the Curve with Green Line ## Draw Lane
+i followed those steps of algorithm to getting the line fitted on the lanes:
+1. getting a histogram sum of the image pixel values
+2. getting the starting position of both lanes from the left and right half of histogram.
+3. divide the image into n steps and move two windows seperately over the starting 
+   points of the lanes
+4. for each window we Identify the nonzero pixels in x and y within the window
+5. then we Append these indices to the lists
+6. recenter the window to the mean of the previous window's non-zero pixels.
+7. then after all the window steps, we extract the x and y location of the total selected pixels 
+   and fit a second order polynomial to them.
+8. Then we fit a line to it using the formula Ax^2 + Bx + C
+9. The last step is to plot these lines using any suitable python libraries.
+10. We can also plot the windows using the cv2.rectangle() method.
+
+
 ## Calculating The Distance of the Car from Center and its Direction
 Now we are going to calculate the center of the lane to find the distance of the car relative to the lane center.
 First we will get the initial left lane position and the initial right lane position by subtitiude in the following polynomial equation 
