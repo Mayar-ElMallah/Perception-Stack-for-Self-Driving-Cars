@@ -119,6 +119,8 @@ Please find the link to the output video:
 
 
 [Challenge video-output](Advanced-Detection/challenge_video_output2.mp4)
+
+
 [Harder challenge video-input](Advanced-Detection/harder_challenge_video.mp4)
 
 
