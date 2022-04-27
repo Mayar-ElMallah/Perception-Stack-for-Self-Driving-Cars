@@ -108,8 +108,8 @@ There were a lot of challenges in the project. We have enlisted some of them wit
 
 Please find the link to the output video:
 # Links
-[Project video](Advanced-Detection/project_video.mp4)
-
+[Project video-input](Advanced-Detection/project_video.mp4)
+[Project video-Output](Advanced-Detection/project_video_output.mp4)
 
 
 
