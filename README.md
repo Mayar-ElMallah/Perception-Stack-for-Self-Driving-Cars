@@ -102,8 +102,8 @@ i followed those steps of algorithm to getting the line fitted on the lanes:
 8. Then we fit a line to it using the formula Ax^2 + Bx + C
 9. The last step is to plot these lines using any suitable python libraries.
 10. We can also plot the windows using the cv2.rectangle() method.
-
-
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/b7b3527f34358d88461ea96df745b8707c4aa748/writeUp/download.png)
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/b7b3527f34358d88461ea96df745b8707c4aa748/writeUp/download%20(1).png)
 ## Calculating The Distance of the Car from Center and its Direction
 Now we are going to calculate the center of the lane to find the distance of the car relative to the lane center.
 First we will get the initial left lane position and the initial right lane position by subtitiude in the following polynomial equation 
