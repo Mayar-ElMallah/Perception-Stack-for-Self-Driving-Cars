@@ -89,7 +89,7 @@ We'll be getting a histogram of the image with respect to the X axis. Each porti
 ![This is an image](writeUp/output_13.png)
 
 ## Sliding Window Search and Fitting the Curve with Green Line ## Draw Lane
-i followed those steps of algorithm to getting the line fitted on the lanes:
+i followed those steps of algorithm for getting the line fitted on the lanes:
 1. getting a histogram sum of the image pixel values
 2. getting the starting position of both lanes from the left and right half of histogram.
 3. divide the image into n steps and move two windows seperately over the starting 
@@ -102,8 +102,46 @@ i followed those steps of algorithm to getting the line fitted on the lanes:
 8. Then we fit a line to it using the formula Ax^2 + Bx + C
 9. The last step is to plot these lines using any suitable python libraries.
 10. We can also plot the windows using the cv2.rectangle() method.
-![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/b7b3527f34358d88461ea96df745b8707c4aa748/writeUp/download.png)
+
 ![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/b7b3527f34358d88461ea96df745b8707c4aa748/writeUp/download%20(1).png)
+
+
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/3a7a9f1c53d8a2104eb91a3d2e875921813f4281/writeUp/download%20(1).png)
+
+## Draw Lane
+i followed those lines of code to Draw the Detected Lane Back onto the Original Image:
+
+```
+def draw_lane(original_img, binary_img, l_fit, r_fit, Minv):
+    new_img = np.copy(original_img)
+    if l_fit is None or r_fit is None:
+        return original_img
+    # Create an image to draw the lines on
+    warp_zero = np.zeros_like(binary_img).astype(np.uint8)
+    color_warp = np.dstack((warp_zero, warp_zero, warp_zero))
+    
+    h,w = binary_img.shape
+    ploty = np.linspace(0, h-1, num=h)# to cover same y-range as image
+    left_fitx = l_fit[0]*ploty**2 + l_fit[1]*ploty + l_fit[2]
+    right_fitx = r_fit[0]*ploty**2 + r_fit[1]*ploty + r_fit[2]
+
+    # Recast the x and y points into usable format for cv2.fillPoly()
+    pts_left = np.array([np.transpose(np.vstack([left_fitx, ploty]))])
+    pts_right = np.array([np.flipud(np.transpose(np.vstack([right_fitx, ploty])))])
+    pts = np.hstack((pts_left, pts_right))
+
+    # Draw the lane onto the warped blank image
+    cv2.fillPoly(color_warp, np.int_([pts]), (0,255, 0))
+    cv2.polylines(color_warp, np.int32([pts_left]), isClosed=False, color=(255,0,255), thickness=15)
+    cv2.polylines(color_warp, np.int32([pts_right]), isClosed=False, color=(0,255,255), thickness=15)
+
+    # Warp the blank back to original image space using inverse perspective matrix (Minv)
+    newwarp = cv2.warpPerspective(color_warp, Minv, (w, h)) 
+    # Combine the result with the original image
+    result = cv2.addWeighted(new_img, 1, newwarp, 0.5, 0)
+    return result,color_warp
+
+```
 ## Calculating The Distance of the Car from Center and its Direction
 Now we are going to calculate the center of the lane to find the distance of the car relative to the lane center.
 First we will get the initial left lane position and the initial right lane position by subtitiude in the following polynomial equation 
@@ -120,6 +158,9 @@ if center_dist > 0:
     elif center_dist < 0:
         direction = 'left'
 ```
+output result:
+
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/72a8d41519027db1eb426d07459a4791683ea105/writeUp/download%20(2).png)
 
 ## Calculating Radius of Curvature
 We can find the radius of curvature by fitting polynomials for right and left side of the lane then by using the resultant coefficients  we can calculate the curvature for each of them by the following equation 
