@@ -103,7 +103,7 @@ i followed those steps of algorithm for getting the line fitted on the lanes:
 9. The last step is to plot these lines using any suitable python libraries.
 10. We can also plot the windows using the cv2.rectangle() method.
 
-![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/b7b3527f34358d88461ea96df745b8707c4aa748/writeUp/download%20(1).png)
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/828fbca0b46b99e9772b95a0e0cc5a8a5a5c591a/writeUp/download.png)
 
 
 ![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/3a7a9f1c53d8a2104eb91a3d2e875921813f4281/writeUp/download%20(1).png)
@@ -142,6 +142,9 @@ def draw_lane(original_img, binary_img, l_fit, r_fit, Minv):
     return result,color_warp
 
 ```
+##output result:
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/72a8d41519027db1eb426d07459a4791683ea105/writeUp/download%20(2).png)
+
 ## Calculating The Distance of the Car from Center and its Direction
 Now we are going to calculate the center of the lane to find the distance of the car relative to the lane center.
 First we will get the initial left lane position and the initial right lane position by subtitiude in the following polynomial equation 
@@ -158,9 +161,6 @@ if center_dist > 0:
     elif center_dist < 0:
         direction = 'left'
 ```
-output result:
-
-![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/72a8d41519027db1eb426d07459a4791683ea105/writeUp/download%20(2).png)
 
 ## Calculating Radius of Curvature
 We can find the radius of curvature by fitting polynomials for right and left side of the lane then by using the resultant coefficients  we can calculate the curvature for each of them by the following equation 
