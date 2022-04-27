@@ -123,5 +123,6 @@ Please find the link to the output video:
 
 [Harder challenge video-input](Advanced-Detection/harder_challenge_video.mp4)
 
+[Harder challenge video-output](Advanced-Detection/project_video_output3.mp4)
 
 
