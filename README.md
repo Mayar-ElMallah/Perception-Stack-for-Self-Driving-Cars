@@ -98,8 +98,8 @@ First we will get the initial left lane position and the initial right lane posi
 ![equation](http://www.sciweavers.org/tex2img.php?eq=f%28x%29%3DAx%5E2%2BBx%2BC%&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
 
 
-by averging the outputs from this equation we will find the center of lane. with assumption that the center of the car is half of the image width we can calculate the diffenernce between the car center and lane center 
- 
+by averging the outputs from this equation we will find the center of lane. with assumption that the center of the car is half of the image width we can calculate the diffenernce between the car center and lane center.
+For direction we can implement simple function check if the distance between the center of the lane and the center of the car is greater than 0,the car will be at the right of the lane else it will be at the left of it.
 
 ## Calculating Radius of Curvature
 ## The Final Image
