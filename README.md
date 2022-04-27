@@ -91,6 +91,7 @@ We'll be getting a histogram of the image with respect to the X axis. Each porti
 ## Sliding Window Search and Fitting the Curve with Green Line
 ## Draw Lane
 ## Calculating The Distance of the Car from Center and its Direction
+Now we are going to calculate the center of the lane to find the distance of the car relative to the lane center.  
 ## Calculating Radius of Curvature
 ## The Final Image
 
