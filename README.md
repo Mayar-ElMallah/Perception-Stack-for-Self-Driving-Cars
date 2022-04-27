@@ -93,7 +93,9 @@ We'll be getting a histogram of the image with respect to the X axis. Each porti
 ## Calculating The Distance of the Car from Center and its Direction
 Now we are going to calculate the center of the lane to find the distance of the car relative to the lane center.
 First we will get the initial left lane position and the initial right lane position by subtitiude in the following polynomial equation 
-![equation](http://www.sciweavers.org/tex2img.php?eq=f%28x%29%3DAx2%2BBx%2BC%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+
+
+![equation](http://www.sciweavers.org/tex2img.php?eq=f%28x%29%3DAx%5E2%2BBx%2BC%&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
 
  
 
