@@ -108,15 +108,13 @@ There were a lot of challenges in the project. We have enlisted some of them wit
 
 Please find the link to the output video:
 # Links
-[Project video-input](Advanced-Detection/project_video.mp4)       /      [Project video-output](Advanced-Detection/project_video_output.mp4)
+[Project video-input](Advanced-Detection/project_video.mp4)            /           [Project video-output](Advanced-Detection/project_video_output.mp4)
 
 
 
-[Challenge video-input](Advanced-Detection/challenge_video.mp4)    /    [Challenge video-output](Advanced-Detection/challenge_video_output2.mp4)
+[Challenge video-input](Advanced-Detection/challenge_video.mp4)         /         [Challenge video-output](Advanced-Detection/challenge_video_output2.mp4)
 
 
-[Harder challenge video-input](Advanced-Detection/harder_challenge_video.mp4)
-
-[Harder challenge video-output](Advanced-Detection/project_video_output3.mp4)
+[Harder challenge video-input](Advanced-Detection/harder_challenge_video.mp4)   /  [Harder challenge video-output](Advanced-Detection/project_video_output3.mp4)
 
 
