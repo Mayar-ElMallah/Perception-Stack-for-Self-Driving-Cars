@@ -122,7 +122,7 @@ Please find the link to the output video:
 
 
 
-[Challenge video-input](Advanced-Detection/challenge_video.mp4)         /         [Challenge video-output](Advanced-Detection/challenge_video_output2.mp4)
+[Challenge video-input](Advanced-Detection/challenge_video.mp4)         /         [Challenge video-output](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/29ac2f3257e433c54d1b2b2be1b6e30ff1e9b7b1/challenge_video_output2.mp4)
 
 
 [Harder challenge video-input](Advanced-Detection/harder_challenge_video.mp4)   /  [Harder challenge video-output](Advanced-Detection/project_video_output3.mp4)
