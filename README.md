@@ -108,11 +108,11 @@ if center_dist > 0:
 ```
 
 ## Calculating Radius of Curvature
-We can find radius of curvature by fitting polynomials for right and left side of the lane then by using the resultant coefficients  we can calculate the curvature for each of them by the following equation 
+We can find the radius of curvature by fitting polynomials for right and left side of the lane then by using the resultant coefficients  we can calculate the curvature for each of them by the following equation 
 
 ![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/7b798507b4a6c90bb310ee58f5727149f202a158/Curvature%20formula.PNG)
  
- then by averging the twa radii of curvature we will get the curvature radius of the lane 
+ then by averging the two radii of curvature we will get the curvature radius of the lane 
 ## The Final Image
 
 ## Problems faced during the project
