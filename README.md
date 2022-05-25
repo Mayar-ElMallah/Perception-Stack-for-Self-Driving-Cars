@@ -88,11 +88,88 @@ We'll be applying a special algorithm called the Sliding Window Algorithm to det
 We'll be getting a histogram of the image with respect to the X axis. Each portion of the histogram below displays how many white pixels are in each column of the image. We then take the highest peaks of each side of the image, one for each lane line. Here's what the histogram looks like:
 ![This is an image](writeUp/output_13.png)
 
-## Sliding Window Search and Fitting the Curve with Green Line
+## Sliding Window Search and Fitting the Curve with Green Line ## Draw Lane
+i followed those steps of algorithm for getting the line fitted on the lanes:
+1. getting a histogram sum of the image pixel values
+2. getting the starting position of both lanes from the left and right half of histogram.
+3. divide the image into n steps and move two windows seperately over the starting 
+   points of the lanes
+4. for each window we Identify the nonzero pixels in x and y within the window
+5. then we Append these indices to the lists
+6. recenter the window to the mean of the previous window's non-zero pixels.
+7. then after all the window steps, we extract the x and y location of the total selected pixels 
+   and fit a second order polynomial to them.
+8. Then we fit a line to it using the formula Ax^2 + Bx + C
+9. The last step is to plot these lines using any suitable python libraries.
+10. We can also plot the windows using the cv2.rectangle() method.
+
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/828fbca0b46b99e9772b95a0e0cc5a8a5a5c591a/writeUp/download.png)
+
+
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/3a7a9f1c53d8a2104eb91a3d2e875921813f4281/writeUp/download%20(1).png)
+
 ## Draw Lane
+i followed those lines of code to Draw the Detected Lane Back onto the Original Image:
+
+```
+def draw_lane(original_img, binary_img, l_fit, r_fit, Minv):
+    new_img = np.copy(original_img)
+    if l_fit is None or r_fit is None:
+        return original_img
+    # Create an image to draw the lines on
+    warp_zero = np.zeros_like(binary_img).astype(np.uint8)
+    color_warp = np.dstack((warp_zero, warp_zero, warp_zero))
+    
+    h,w = binary_img.shape
+    ploty = np.linspace(0, h-1, num=h)# to cover same y-range as image
+    left_fitx = l_fit[0]*ploty**2 + l_fit[1]*ploty + l_fit[2]
+    right_fitx = r_fit[0]*ploty**2 + r_fit[1]*ploty + r_fit[2]
+
+    # Recast the x and y points into usable format for cv2.fillPoly()
+    pts_left = np.array([np.transpose(np.vstack([left_fitx, ploty]))])
+    pts_right = np.array([np.flipud(np.transpose(np.vstack([right_fitx, ploty])))])
+    pts = np.hstack((pts_left, pts_right))
+
+    # Draw the lane onto the warped blank image
+    cv2.fillPoly(color_warp, np.int_([pts]), (0,255, 0))
+    cv2.polylines(color_warp, np.int32([pts_left]), isClosed=False, color=(255,0,255), thickness=15)
+    cv2.polylines(color_warp, np.int32([pts_right]), isClosed=False, color=(0,255,255), thickness=15)
+
+    # Warp the blank back to original image space using inverse perspective matrix (Minv)
+    newwarp = cv2.warpPerspective(color_warp, Minv, (w, h)) 
+    # Combine the result with the original image
+    result = cv2.addWeighted(new_img, 1, newwarp, 0.5, 0)
+    return result,color_warp
+
+```
+##output result:
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/72a8d41519027db1eb426d07459a4791683ea105/writeUp/download%20(2).png)
+
 ## Calculating The Distance of the Car from Center and its Direction
+Now we are going to calculate the center of the lane to find the distance of the car relative to the lane center.
+First we will get the initial left lane position and the initial right lane position by subtitiude in the following polynomial equation 
+
+
+![equation](http://www.sciweavers.org/tex2img.php?eq=f%28x%29%3DAx%5E2%2BBx%2BC%&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
+
+
+by averging the outputs from this equation we will find the center of lane. with assumption that the center of the car is half of the image width we can calculate the diffenernce between the car center and lane center.
+For direction we can implement simple function check if the distance between the center of the lane and the center of the car is greater than 0,the car will be at the right of the lane else it will be at the left of it.
+```
+if center_dist > 0:
+        direction = 'right'
+    elif center_dist < 0:
+        direction = 'left'
+```
+
 ## Calculating Radius of Curvature
+We can find the radius of curvature by fitting polynomials for right and left side of the lane then by using the resultant coefficients  we can calculate the curvature for each of them by the following equation 
+
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/main/writeUp/Screenshot%20(856).png)
+ 
+ then by averging the two radii of curvature we will get the curvature radius of the lane 
 ## The Final Image
+![This is an image](writeUp/18-draw_data.png)
 
 ## Problems faced during the project
 There were a lot of challenges in the project. We have enlisted some of them with the solutions.
@@ -108,9 +185,17 @@ There were a lot of challenges in the project. We have enlisted some of them wit
 
 Please find the link to the output video:
 # Links
+[Project video-input](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/29ac2f3257e433c54d1b2b2be1b6e30ff1e9b7b1/project_video.mp4)            /           [Project video-output](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/29ac2f3257e433c54d1b2b2be1b6e30ff1e9b7b1/project_video_output.mp4)
+ [Car Detected Project video-output](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/Advanced-Detection/project_video_output7.mp4)
 
 
 
+[Challenge video-input](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/29ac2f3257e433c54d1b2b2be1b6e30ff1e9b7b1/challenge_video.mp4)         /         [Challenge video-output](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/29ac2f3257e433c54d1b2b2be1b6e30ff1e9b7b1/challenge_video_output2.mp4)
+ [Car Detected challenge video-output](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/Advanced-Detection/challenge_video_output5.mp4)
+
+
+[Harder challenge video-input](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/29ac2f3257e433c54d1b2b2be1b6e30ff1e9b7b1/harder_challenge_video.mp4)   /  [Harder challenge video-output](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/29ac2f3257e433c54d1b2b2be1b6e30ff1e9b7b1/project_video_output3.mp4)
+ [Car Detected Harder challenge video-output](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/Advanced-Detection/harder_challenge_video_output3.mp4)
 
 
 
