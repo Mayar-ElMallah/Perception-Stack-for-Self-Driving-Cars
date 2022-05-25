@@ -169,7 +169,7 @@ We can find the radius of curvature by fitting polynomials for right and left si
  
  then by averging the two radii of curvature we will get the curvature radius of the lane 
 ## The Final Image
-![This is an image](writeUp/18-draw_data.png)
+![This is an image](https://github.com/Mayar-ElMallah/Perception-Stack-for-Self-Driving-Cars/blob/main/writeUp/18-draw_data.png)
 
 ## Problems faced during the project
 There were a lot of challenges in the project. We have enlisted some of them with the solutions.
